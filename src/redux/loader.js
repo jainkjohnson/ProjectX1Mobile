@@ -1,9 +1,12 @@
 const TOGGLE_LOADER = 'TOGGLE_LOADER';
+const initialState = {
+  showLoader: false
+};
 
-export default function loader(state = false, action = {}) {
+export default function loader(state = initialState, action = {}) {
   switch (action.type) {
     case TOGGLE_LOADER:
-      return action.value;
+      return !state.initialState;
     default:
       return state;
   }

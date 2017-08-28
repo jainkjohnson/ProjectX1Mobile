@@ -3,8 +3,8 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 // All redux reducers (rolled into one mega-reducer)
-import rootReducer from './redux/index';
-import { SimpleApp } from './routes';
+import { SimpleApp } from 'app/routes';
+import rootReducer from 'app/redux/index';
 
 const logger = (store) => (next) => (action) => {
   const result = next(action);

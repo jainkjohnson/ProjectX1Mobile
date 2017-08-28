@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import { colorCodes } from 'app/theme';
 
 const { height, width } = Dimensions.get('window');
 const imageSize = 60;
@@ -7,9 +8,13 @@ const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
   },
+  hidden: {
+    height: 0,
+    opacity: 0
+  },
   container: {
     position: 'absolute',
-    backgroundColor: '#295a84',
+    backgroundColor: colorCodes.appTheme,
     width: width * 0.2,
     height,
     alignItems: 'center'
@@ -20,8 +25,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    borderBottomWidth: 0.5,
-    borderColor: '#FFFFFF'
+    borderTopWidth: 1,
+    borderColor: colorCodes.sideDrawerBorder,
   },
   profilePic: {
     height: imageSize,
@@ -33,8 +38,8 @@ const styles = StyleSheet.create({
     width: 70,
     alignItems: 'center',
     justifyContent: 'center',
-    borderColor: '#FFFFFF',
-    borderBottomWidth: 0.5,
+    borderColor: colorCodes.sideDrawerBorder,
+    borderTopWidth: 1,
   },
   freeSpace: {
     position: 'absolute',
