@@ -7,13 +7,14 @@ const imageSize = 60;
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
+    flexDirection: 'row',
+    top: height * 0.08,
   },
   hidden: {
     height: 0,
     opacity: 0
   },
   container: {
-    position: 'absolute',
     backgroundColor: colorCodes.appTheme,
     width: width * 0.2,
     height,
@@ -42,11 +43,9 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
   },
   freeSpace: {
-    position: 'absolute',
-    width: width * 0.8,
+    width,
     height,
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
-    marginLeft: width * 0.2
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
   }
 });
 

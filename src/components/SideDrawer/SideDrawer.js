@@ -18,6 +18,7 @@ class SideDrawer extends Component {
     navigate: object,
     showDrawer: bool,
     toggleDrawer: func,
+    className: object,
   }
 
   componentDidMount() {
@@ -44,7 +45,7 @@ class SideDrawer extends Component {
 
   render() {
     return (
-      <View>
+      <View style={[this.props.className, styles.rootContainer]}>
         <View style={this.props.showDrawer ? styles.container : styles.hidden}>
           <View style={styles.userImageContainer}>
             <Image
@@ -56,7 +57,7 @@ class SideDrawer extends Component {
             this.renderMenu()
           }
         </View>
-        <TouchableWithoutFeedback onPress={this.props.toggleDrawer}>
+        <TouchableWithoutFeedback onPress={this.props.toggleDrawer} style={this.props.showDrawer ? styles.freeSpace : styles.hidden}>
         <View style={this.props.showDrawer ? styles.freeSpace : styles.hidden} />
         </TouchableWithoutFeedback>
       </View>

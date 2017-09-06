@@ -1,5 +1,5 @@
 import { StackNavigator } from 'react-navigation';
-import HomeScreen from './containers/home';
+import HomeScreen from './containers/Home/Home';
 import Screen1 from './containers/';
 
 const Routes = {
@@ -22,7 +22,7 @@ const SimpleApp = StackNavigator(
     ...Routes
   },
   {
-    initialRouteName: 'Screen1',
+    initialRouteName: 'HomeScreen',
     headerMode: 'none',
   }
 );
