@@ -17,18 +17,13 @@ module.exports = function (shipit) {
     },
   });
 
-  // this task copies script to inside of current folder
-  shipit.blTask('copy_script', function () {
-    return shipit.remote('cp /home/dilshad/Project/temp/jain/ProjectX1Mobile/restart.sh /home/dilshad/Project/temp/jain/ProjectX1Mobile/current');
-  });
-
   // this task runs the script
   shipit.blTask('run_script', function () {
     return shipit.remote('/bin/bash /home/dilshad/Project/temp/jain/ProjectX1Mobile/restart.sh');
   });
 
   shipit.on('deployed', function () {
-    shipit.start('copy_script', 'run_script');
+    shipit.start('run_script');
   });
 
   shipit.on('rollbacked', function () {
