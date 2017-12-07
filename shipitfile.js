@@ -10,7 +10,7 @@ module.exports = function (shipit) {
   shipit.initConfig({
     ProjectX1Mobile: {
       servers: dilshadSystem,
-      workspace: '/tmp/' + webappProjectName,
+      workspace: webappProjectName,
       repositoryUrl: webappProjectUrl,
       deployTo: webappProjectDestinationDir,
       branch: 'develop',
@@ -19,7 +19,7 @@ module.exports = function (shipit) {
 
   // this task runs the script
   shipit.blTask('run_script', function () {
-    return shipit.remote('/bin/bash /home/dilshad/Project/temp/jain/ProjectX1Mobile/restart.sh');
+    return shipit.remote('/bin/bash /home/dilshad/Project/temp/jain/ProjectX1Mobile/current/restart.sh');
   });
 
   shipit.on('deployed', function () {

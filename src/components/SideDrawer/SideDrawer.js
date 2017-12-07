@@ -11,14 +11,14 @@ import { Routes } from 'app/routes.js';
 import { toggleDrawer } from 'app/redux/app.js';
 import styles from './styles.js';
 
-const { object, bool, func } = PropTypes;
+const { bool, func, number } = PropTypes;
 
 class SideDrawer extends Component {
   static propTypes = {
-    navigate: object,
+    navigate: func,
     showDrawer: bool,
     toggleDrawer: func,
-    className: object,
+    className: number,
   }
 
   componentDidMount() {
@@ -49,7 +49,7 @@ class SideDrawer extends Component {
         <View style={this.props.showDrawer ? styles.container : styles.hidden}>
           <View style={styles.userImageContainer}>
             <Image
-              source={require('../../images/profile.jpg')}
+              source={require('../../images/profile.jpg')} // eslint-disable-line
               style={styles.profilePic}
             />
           </View>

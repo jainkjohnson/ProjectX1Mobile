@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   profilePic: {
     height: imageSize,
     width: imageSize,
-    borderRadius: imageSize,
+    borderRadius: imageSize / 2,
   },
   iconContainer: {
     height: 70,

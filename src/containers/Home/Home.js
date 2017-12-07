@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import {
   View,
-  Text,
-  Button
+  ScrollView,
+  TouchableOpacity,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { connect } from 'react-redux';
 import { toggleDrawer } from 'app/redux/app.js';
 import SideDrawer from 'app/components/SideDrawer/SideDrawer';
@@ -34,9 +35,14 @@ class App extends Component {
     return (
       <View>
         <NavBar leftButton="bars" titleText="Diary" leftButtonPress={() => this.props.toggleDrawer()} />
+        <ScrollView style={styles.scrollStyle}>
         {
           this.renderCards()
         }
+        </ScrollView>
+        <TouchableOpacity style={styles.addDiary}>
+          <Icon name="plus" size={17} color="#FFF" />
+        </TouchableOpacity>
         <SideDrawer navigate={navigate} className={styles.sideDrawer} />
       </View>
     );
