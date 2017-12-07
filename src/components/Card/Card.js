@@ -7,28 +7,31 @@ import {
 import { dateConvertor } from 'app/helpers/dateConvertor';
 import styles from './styles';
 
-const { string } = PropTypes;
+const { string, object } = PropTypes;
 
 export default class Card extends Component {
   static propTypes = {
-    date: string
+    date: string,
+    data: object,
   }
   componentDidMount() {
   }
   render() {
     const dateArray = dateConvertor(this.props.date);
-    const sideLineColor = ['#4CAF50', '#E64A19', '#FFC107'];
+    const sideLineColor = { HAPPY: '#4CAF50', SAD: '#E64A19', NORMAL: '#FFC107' };
+    const { data } = this.props;
 
     return (
       <View style={styles.rootContainer}>
-        <View style={[styles.sideLineContainer, { backgroundColor: sideLineColor[Math.floor(Math.random() * sideLineColor.length)] }]} />
+        <View style={[styles.sideLineContainer, { backgroundColor: sideLineColor[data.status] }]} />
         <View style={styles.dateContainer}>
           <Text style={styles.time}>{dateArray[4]}</Text>
           <Text style={styles.date}>{dateArray[0]}</Text>
           <Text style={styles.day}>{dateArray[3]}</Text>
         </View>
         <View style={styles.contentContainer}>
-          <Text style={styles.content}>content</Text>
+          <Text style={styles.title}>{data.title}</Text>
+          <Text style={styles.content}>{data.content}</Text>
         </View>
       </View>
     );

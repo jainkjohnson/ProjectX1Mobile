@@ -40,7 +40,13 @@ const styles = StyleSheet.create({
   content: {
     fontSize: 13,
     padding: 5,
-  }
+    paddingTop: 0,
+  },
+  title: {
+    fontSize: 12,
+    padding: 5,
+    fontWeight: '500',
+  },
 });
 
 module.exports = styles;
