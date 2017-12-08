@@ -1,5 +1,6 @@
 import { StackNavigator } from 'react-navigation';
 import HomeScreen from './containers/Home/Home';
+import AddDiary from './containers/AddDiary/AddDiary';
 import Screen1 from './containers/';
 
 const Routes = {
@@ -14,7 +15,11 @@ const Routes = {
     screen: HomeScreen,
     label: 'HOME',
     icon: 'book'
-  }
+  },
+  AddDiary: {
+    name: 'AddDiary',
+    screen: AddDiary,
+  },
 };
 
 const SimpleApp = StackNavigator(

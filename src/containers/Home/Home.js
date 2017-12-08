@@ -22,6 +22,13 @@ class App extends Component {
   }
   componentDidMount() {
   }
+
+  addDiary = () => {
+    const { navigate } = this.props.navigation;
+
+    navigate('AddDiary');
+  }
+
   renderCards = () => {
     const { data: mokeData } = sample;
 
@@ -29,6 +36,7 @@ class App extends Component {
       <Card data={mokeData[item]} date={item} key={key} />
     ));
   };
+
   render() {
     const { navigate } = this.props.navigation;
 
@@ -40,7 +48,7 @@ class App extends Component {
           this.renderCards()
         }
         </ScrollView>
-        <TouchableOpacity style={styles.addDiary}>
+        <TouchableOpacity style={styles.addDiary} onPress={this.addDiary}>
           <Icon name="plus" size={17} color="#FFF" />
         </TouchableOpacity>
         <SideDrawer navigate={navigate} className={styles.sideDrawer} />
