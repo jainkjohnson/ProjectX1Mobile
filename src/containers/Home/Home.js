@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import {
   View,
-  ScrollView,
+  FlatList,
   TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -29,13 +29,11 @@ class App extends Component {
     navigate('AddDiary');
   }
 
-  renderCards = () => {
-    const { data: mokeData } = sample;
+  keyExtractor = (item) => item.id;
 
-    return Object.keys(mokeData).map((item, key) => (
-      <Card data={mokeData[item]} date={item} key={key} />
-    ));
-  };
+  renderCards = ({ item }) => (
+    <Card data={item} date={item.time} key={item} />
+  );
 
   render() {
     const { navigate } = this.props.navigation;
@@ -43,11 +41,17 @@ class App extends Component {
     return (
       <View>
         <NavBar leftButton="bars" titleText="Diary" leftButtonPress={() => this.props.toggleDrawer()} />
-        <ScrollView style={styles.scrollStyle}>
+        {/* <ScrollView style={styles.scrollStyle}>
         {
           this.renderCards()
         }
-        </ScrollView>
+        </ScrollView> */}
+        <FlatList
+          data={sample}
+          renderItem={this.renderCards}
+          style={styles.scrollStyle}
+          keyExtractor={this.keyExtractor}
+        />
         <TouchableOpacity style={styles.addDiary} onPress={this.addDiary}>
           <Icon name="plus" size={17} color="#FFF" />
         </TouchableOpacity>

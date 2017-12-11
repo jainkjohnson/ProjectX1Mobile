@@ -7,11 +7,11 @@ import {
 import { dateConvertor } from 'app/helpers/dateConvertor';
 import styles from './styles';
 
-const { string, object } = PropTypes;
+const { number, object } = PropTypes;
 
 export default class Card extends Component {
   static propTypes = {
-    date: string,
+    date: number,
     data: object,
   }
   componentDidMount() {
