@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import {
   View,
-  Text,
-  Button
+  FlatList,
+  TouchableOpacity,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { connect } from 'react-redux';
 import { toggleDrawer } from 'app/redux/app.js';
 import SideDrawer from 'app/components/SideDrawer/SideDrawer';
@@ -21,22 +22,39 @@ class App extends Component {
   }
   componentDidMount() {
   }
-  renderCards = () => {
-    const { data: mokeData } = sample;
 
-    return Object.keys(mokeData).map((item, key) => (
-      <Card data={mokeData[item]} date={item} key={key} />
-    ));
-  };
+  addDiary = () => {
+    const { navigate } = this.props.navigation;
+
+    navigate('AddDiary');
+  }
+
+  keyExtractor = (item) => item.id;
+
+  renderCards = ({ item }) => (
+    <Card data={item} date={item.time} key={item} />
+  );
+
   render() {
     const { navigate } = this.props.navigation;
 
     return (
       <View>
         <NavBar leftButton="bars" titleText="Diary" leftButtonPress={() => this.props.toggleDrawer()} />
+        {/* <ScrollView style={styles.scrollStyle}>
         {
           this.renderCards()
         }
+        </ScrollView> */}
+        <FlatList
+          data={sample}
+          renderItem={this.renderCards}
+          style={styles.scrollStyle}
+          keyExtractor={this.keyExtractor}
+        />
+        <TouchableOpacity style={styles.addDiary} onPress={this.addDiary}>
+          <Icon name="plus" size={17} color="#FFF" />
+        </TouchableOpacity>
         <SideDrawer navigate={navigate} className={styles.sideDrawer} />
       </View>
     );

@@ -8,6 +8,7 @@ import SideDrawer from 'app/components/SideDrawer/SideDrawer';
 import NavBar from 'app/components/NavBar/NavBar';
 import Card from 'app/components/Card/Card';
 import { sample } from 'app/lib/mokeData';
+import styles from './styles.js';
 
 const { object, func } = PropTypes;
 
@@ -32,10 +33,8 @@ class App extends React.Component {
     return (
       <View>
         <NavBar leftButton="bars" titleText="To Do" leftButtonPress={() => this.props.toggleDrawer()} />
-        <SideDrawer navigate={navigate} />
-        {
-           // this.renderCards()
-        }
+
+        <SideDrawer navigate={navigate} className={styles.sideDrawer} />
       </View>
     );
   }
