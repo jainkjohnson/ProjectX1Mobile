@@ -1,10 +1,18 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
   rootContainer: {
     backgroundColor: 'white',
-    height: 50,
+    height: height * 0.07,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+  },
+  multiLineRootContainer: {
+    backgroundColor: 'white',
+    height: height * 0.55,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -16,11 +24,17 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   textContainer: {
-    height: 40,
+    height: height * 0.06,
     width: width - 50,
     marginTop: 5,
     flex: 0.9,
-  }
+  },
+  textMultiLineContainer: {
+    height: height * 0.5,
+    width: width - 30,
+    fontSize: 14,
+    backgroundColor: 'white'
+  },
 });
 
 module.exports = styles;

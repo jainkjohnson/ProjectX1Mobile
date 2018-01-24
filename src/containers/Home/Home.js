@@ -39,7 +39,7 @@ class App extends Component {
     const { navigate } = this.props.navigation;
 
     return (
-      <View>
+      <View style={{ flex: 1 }}>
         <NavBar leftButton="bars" titleText="Diary" leftButtonPress={() => this.props.toggleDrawer()} />
         {/* <ScrollView style={styles.scrollStyle}>
         {
@@ -49,7 +49,6 @@ class App extends Component {
         <FlatList
           data={sample}
           renderItem={this.renderCards}
-          style={styles.scrollStyle}
           keyExtractor={this.keyExtractor}
         />
         <TouchableOpacity style={styles.addDiary} onPress={this.addDiary}>

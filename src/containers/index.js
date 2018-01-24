@@ -30,6 +30,8 @@ class App extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
 
+    console.disableYellowBox = true;
+
     return (
       <View>
         <NavBar leftButton="bars" titleText="To Do" leftButtonPress={() => this.props.toggleDrawer()} />
