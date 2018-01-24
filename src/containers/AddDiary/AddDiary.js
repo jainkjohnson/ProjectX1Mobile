@@ -35,7 +35,7 @@ export default class AddDiary extends Component {
     this.spin();
     setTimeout(() => {
       this.stopSpin();
-    }, 2000);
+    }, 500);
   }
 
   onTextChange = (text) => {
@@ -77,13 +77,6 @@ export default class AddDiary extends Component {
     return (
       <View>
         <NavBar leftButton="arrow-left" titleText="Add Diary" leftButtonPress={this.goBack} />
-        {/* <Animated.Image
-          style={{
-            width: 227,
-            height: 200,
-            transform: [{ rotate: spin }] }}
-          source={{ uri: 'https://s3.amazonaws.com/media-p.slid.es/uploads/alexanderfarennikov/images/1198519/reactjs.png' }}
-        /> */}
         <TextContainer onInputChange={this.onTextChange} className={styles.textContainer} icon="calendar" />
         <TextContainer onInputChange={this.onTextChange} className={styles.textContainer} icon="pencil" />
         <TextContainer
@@ -92,9 +85,11 @@ export default class AddDiary extends Component {
           multiline
           numberOfLines={10}
         />
-        <Animated.View style={[styles.addDiary, { transform: [{ rotate: spin }] }]} onPress={this.addDiary}>
-          <Icon name="plus" size={17} color="#fff" />
-        </Animated.View>
+        <TouchableOpacity>
+          <Animated.View style={[styles.addDiary, { transform: [{ rotate: spin }] }]} onPress={this.addDiary}>
+            <Icon name="plus" size={17} color="#fff" />
+          </Animated.View>
+        </TouchableOpacity>
         <ButtonContainer label="Save" className={styles.textContainer} />
       </View>
     );
