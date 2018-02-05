@@ -45,7 +45,7 @@ class SideDrawer extends Component {
 
   render() {
     return (
-      <View style={[this.props.className, styles.rootContainer]}>
+      <View style={this.props.showDrawer ? [this.props.className, styles.rootContainer] : null }>
         <View style={this.props.showDrawer ? styles.container : styles.hidden}>
           <View style={styles.userImageContainer}>
             <Image

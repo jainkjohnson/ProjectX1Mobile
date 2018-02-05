@@ -4,9 +4,12 @@ import { colorCodes } from 'app/theme';
 const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-  // rootContainer: {
-  //   flex: 1
-  // },
+  rootContainer: {
+    shadowOffset: { width: 0, height: 10 },
+    shadowColor: '#514364',
+    shadowOpacity: 0.5,
+    shadowRadius: 8,
+  },
   subContainer: {
     flexDirection: 'row',
     height: 0.08 * height,

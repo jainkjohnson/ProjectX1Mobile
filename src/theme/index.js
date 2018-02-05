@@ -1,7 +1,9 @@
 const colorCodes = {
-  appTheme: '#2a3d50',
+  appTheme: '#595285',
   sideDrawerBorder: '#085a6c',
-  iconColor: '#9E9E9E'
+  iconColor: '#9E9E9E',
+  calanderColor: '#4fa2d2',
+  appBackground: 'white'
 };
 
 export { colorCodes };

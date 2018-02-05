@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Easing,
   Animated,
+  Text,
 } from 'react-native';
 import styles from './styles';
 
